@@ -1,0 +1,424 @@
+
+/* iOS-style frosted glass additions (added by assistant) */
+html, body {
+    height: 100%;
+    
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Frosted glass container */
+.frosted {
+    background: rgba(255,255,255,0.12);
+    -webkit-backdrop-filter: blur(12px) saturate(120%);
+    backdrop-filter: blur(12px) saturate(120%);
+    border-radius: 14px;
+    border: 1px solid rgba(255,255,255,0.18);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+    padding: 1rem;
+}
+
+/* Make cards and navbars translucent */
+.card, .modal-content, .bd-navbar, .bd-sidebar, .btn, .form-control {
+    background: rgba(255,255,255,0.08) !important;
+    border: 1px solid rgba(255,255,255,0.12) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    backdrop-filter: blur(10px) !important;
+    color: #000 !important;
+}
+
+/* Ensure inputs are readable */
+.form-control, input, textarea {
+    background: rgba(255,255,255,0.9) !important;
+    color: #000 !important;
+}
+
+/* Darken text for readability */
+body, .card, .bd-navbar, .bd-sidebar {
+    color: #000;
+}
+
+/* small rounded buttons */
+.btn {
+    border-radius: 10px;
+}
+
+/* modal center */
+.modal-dialog {
+    margin-top: 6vh;
+}
+
+
+[v-cloak] {
+    display: none;
+}
+
+.bd-navbar {
+    min-height: 4rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, .05), inset 0 -1px 0 rgba(0, 0, 0, .1);
+}
+
+.bd-sidebar {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, .05), inset 0 -1px 0 rgba(0, 0, 0, .1);
+    height: 100%;
+}
+
+.nav-logo-name {
+    color: red;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.nav-menu {
+    padding-top: 12px;
+    padding-left: 0.2rem !important;
+    color: black;
+}
+
+.menu-link {
+    display: block;
+    height: 3rem;
+    line-height: 3rem;
+    color: black;
+    font-weight: 500;
+    border-bottom: 1px solid gainsboro;
+    padding: 0 1rem;
+}
+
+.menu-link .fa {
+    height: 3rem;
+    line-height: 3rem;
+}
+
+.menu-item a {
+    text-decoration: none;
+}
+
+.menu-item ul {
+    list-style: none;
+    padding: 0 1rem;
+}
+
+.menu-item ul li a {
+    display: block;
+    height: 2rem;
+    line-height: 2rem;
+    color: black;
+    padding: 0 1rem;
+}
+
+.menu-item .collapse {
+    margin: 0 !important;
+    border-bottom: 1px solid gainsboro;
+}
+
+.bd-sidebar {
+    padding: 0;
+}
+
+.bd-sidebar .active a{
+    color: green;
+}
+
+@media (min-width: 576px) {
+    .bd-sidebar {
+        position: sticky;
+        top: 4rem;
+        z-index: 1000;
+        height: calc(100vh - 4rem);
+    }
+    .bd-navbar {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        background: white;
+    }
+}
+
+@media (max-width: 576px) {
+    .container-fluid .row {
+        display: block !important;
+    }
+
+    .bd-content {
+        margin-top: 4rem;
+    }
+
+    .bd-navbar {
+        width: 100%;
+        background: white;
+        height: 4rem;
+        top: 0;
+        position: fixed;
+        z-index: 999;
+    }
+
+    .bd-sidebar {
+        top: 4rem;
+        width: 15rem;
+        position: fixed;
+        overflow-x: hidden;
+        overflow-y: auto;
+        visibility: hidden;
+        z-index: 999;
+    }
+
+    .openMenu {
+        visibility: visible;
+        -webkit-transform: translate(0, 0);
+        -ms-transform: translate(0, 0);
+        -moz-transform: translate(0, 0);
+        -o-transform: translate(0, 0);
+        transform: translate(0, 0);
+        -webkit-transition: all 350ms;
+        -ms-transition: all 350ms;
+        -moz-transition: all 350ms;
+        -o-transition: all 350ms;
+        transition: all 350ms;
+        -webkit-backface-visibility: hidden;
+        -ms-backface-visibility: hidden;
+        -moz-backface-visibility: hidden;
+        -o-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+
+    .moveRight {
+        -webkit-transition: all 350ms;
+        -ms-transition: all 350ms;
+        -moz-transition: all 350ms;
+        -o-transition: all 350ms;
+        transition: all 350ms;
+        -webkit-transform: translate3d(250px, 0, 0);
+        -ms-transform: translate3d(250px, 0, 0);
+        -moz-transform: translate3d(250px, 0, 0);
+        -o-transform: translate3d(250px, 0, 0);
+        transform: translate3d(250px, 0, 0);
+        -webkit-transform-origin: 0 0;
+        -ms-transform-origin: 0 0;
+        -moz-transform-origin: 0 0;
+        -o-transform-origin: 0 0;
+        transform-origin: 0 0;
+        -webkit-backface-visibility: hidden;
+        -ms-backface-visibility: hidden;
+        -moz-backface-visibility: hidden;
+        -o-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+
+    .moveAnimation {
+        -webkit-transition: all 350ms;
+        -ms-transition: all 350ms;
+        -moz-transition: all 350ms;
+        -o-transition: all 350ms;
+        transition: all 350ms;
+        -webkit-transform: translate3d(0, 0, 0);
+        -ms-transform: translate3d(0, 0, 0);
+        -moz-transform: translate3d(0, 0, 0);
+        -o-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+        -webkit-transform-origin: 0 0;
+        -ms-transform-origin: 0 0;
+        -moz-transform-origin: 0 0;
+        -o-transform-origin: 0 0;
+        transform-origin: 0 0;
+        -webkit-backface-visibility: hidden;
+        -ms-backface-visibility: hidden;
+        -moz-backface-visibility: hidden;
+        -o-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+}
+
+.input_tips {
+    border: 1px solid #ced4da;
+    padding: .375rem .75rem;
+    border-radius: .25rem;
+    margin-top: 0.25rem;
+    font-size: 12px;
+}
+
+.bd-navbar-index {
+    min-height: 4rem;
+    background-color: #563d7c;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, .05), inset 0 -1px 0 rgba(0, 0, 0, .1);
+    height: auto;
+    position: relative;
+}
+
+:root {
+    --sidebar-width: 260px;
+}
+
+.layout-grid {
+    display: grid;
+    grid-template-columns: var(--sidebar-width) 1fr;
+    grid-auto-rows: auto;
+}
+
+.resizable-sidebar {
+    position: sticky;
+    top: 4rem;
+    height: calc(100vh - 4rem);
+    background-color: rgba(255,255,255,0.72);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border-right: 1px solid rgba(0,0,0,0.08);
+}
+
+.sidebar-resizer {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 6px;
+    height: 100%;
+    cursor: col-resize;
+    background: linear-gradient(to right, rgba(0,0,0,0.06), rgba(0,0,0,0));
+}
+
+/* 更柔和的标题颜色，避免高对比 */
+.nav-logo-name {
+    color: #5f6d85;
+}
+
+/* 移动端：保留原抽屉行为，禁用拖拽把手 */
+@media (max-width: 576px) {
+    .layout-grid { display: block; }
+    .sidebar-resizer { display: none; }
+}
+
+
+/* === 背景图始终在最底层 (Mobile Fix by Assistant) === */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://t.alcy.cc/ycy');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    z-index: -1;              
+    pointer-events: none;     
+}
+
+/* === 毛玻璃区域样式 (Mobile Friendly) === */
+.frosted {
+    background: rgba(255, 255, 255, 0.15);
+    -webkit-backdrop-filter: blur(14px) saturate(120%);
+    backdrop-filter: blur(14px) saturate(120%);
+    border-radius: 14px;
+    border: 1px solid rgba(255,255,255,0.25);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    z-index: 1;
+}
+
+/* === 移动端优化 === */
+@media (max-width: 768px) {
+    body::before {
+        background-attachment: scroll !important;
+        background-size: cover;
+    }
+    .frosted {
+        margin: 0 10px;
+        padding: 1rem;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* === iOS-style Smooth Transition & Rounded Corners (Enhanced by Assistant) === */
+
+/* 全局过渡动画 */
+* {
+    transition: all 0.25s ease-in-out;
+    -webkit-transition: all 0.25s ease-in-out;
+}
+
+
+
+/* 对小元素减少圆角以避免布局问题 */
+.btn-sm, .form-control-sm {
+    border-radius: 10px !important;
+}
+
+/* 按钮点击缩放动效 */
+.btn:active {
+    transform: scale(0.96);
+    -webkit-transform: scale(0.96);
+}
+
+/* 模态框淡入动画 */
+.modal-content {
+    animation: fadeInUp 0.4s ease both;
+    -webkit-animation: fadeInUp 0.4s ease both;
+}
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@-webkit-keyframes fadeInUp {
+    from { opacity:0; -webkit-transform: translateY(20px); }
+    to { opacity:1; -webkit-transform: translateY(0); }
+}
+
+/* 毛玻璃容器入场动画 */
+.frosted {
+    animation: appear 0.6s ease-out;
+    -webkit-animation: appear 0.6s ease-out;
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+}
+@keyframes appear {
+    from { opacity: 0; transform: scale(0.96); }
+    to { opacity: 1; transform: scale(1); }
+}
+@-webkit-keyframes appear {
+    from { opacity: 0; -webkit-transform: scale(0.96); }
+    to { opacity: 1; -webkit-transform: scale(1); }
+}
+
+/* 提升可访问性：悬停和聚焦时的视觉反馈 */
+.btn:hover, .btn:focus {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+}
+
+/* 输入聚焦边框 */
+.form-control:focus {
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    outline: none;
+}
+
+/* 小屏幕略微降低动画强度以节省性能 */
+@media (max-width: 768px) {
+    * { transition-duration: 0.18s; }
+    .frosted { animation-duration: 0.45s; }
+    .modal-content { animation-duration: 0.32s; }
+}
+
