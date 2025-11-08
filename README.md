@@ -8,7 +8,7 @@
 * 2、修复Cloudflare对接问题
 * 3、美化UI
 * 4、修复一些已知的问题
-  ## 3.1.1 (20230116)
+  ## 3.1.1 (2025.11.8)
 * 目前支持的域名解析平台有
     *  dnspod
     *  cloudxns
@@ -19,16 +19,56 @@
     *  DnsDun
 * 多用户、多域名、多平台同时存在
 * 界面简单、舒适，操作简单
-## 3.1.0 (20190803)
-* 1、增加解析网站内容关键词检测
-* 2、增加对dnsdun.com解析平台的支持
-* 2、修复已知的一些问题
-## 3.0.1 (20190419)
-* 1、程序框架由ThinkPHP 改为Laravel 5.8
-* 2、增加对cloudxns平台的支持
-* 3、增加用户组功能
-* 4、更新一些平台的接口
+## 3.1.1(2.0版本)
+* 1、美化
+* 2、加入多管理员功能
+* 如果想要其他的美化请在/css/style.css中加入以下代码(要在安装完系统之后改代码，不然在安装的过程中会出现问题）
+* 1️⃣ 全局过渡动画（Transition）
+* 让按钮、输入框、卡片、hover 等交互带有轻微的淡入淡出与平滑过渡：
+  * {
+    transition: all 0.25s ease-in-out;
+}
 
+* 2️⃣ 圆角细化
+* 让所有常见组件（按钮、输入框、模态框、卡片）都有一致的圆角风格
+.btn, .card, .form-control, .modal-content, .navbar, .alert {
+    border-radius: 16px !important;
+}
+
+* 3️⃣ 按钮点击动效（scale）
+* 在点击按钮时轻微缩放（模仿 iOS 弹性动效）
+.btn:active {
+    transform: scale(0.96);
+}
+
+* 4️⃣ 模态框淡入动画
+* 让登录框 / 弹出框淡入显示
+.modal-content {
+    animation: fadeInUp 0.4s ease both;
+}
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+* 5️⃣ 毛玻璃容器入场动效
+.frosted {
+    animation: appear 0.6s ease-out;
+}
+@keyframes appear {
+    from { opacity: 0; transform: scale(0.96); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+## 3.1.1 (1.0版本)
+* 1、美化
+* 2、修复Cloudflare对接问题
 ## 安装说明
 * 1、程序的框架是Laravel 5.8，因此需要环境满足以下要求：
     * PHP >= 7.1.3
