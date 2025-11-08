@@ -24,26 +24,29 @@
 * 2、加入多管理员功能
 * 如果想要其他的美化请在/css/style.css中加入以下代码(要在安装完系统之后改代码，不然在安装的过程中会出现问题）
 * 1️⃣ 全局过渡动画（Transition）
-* 让按钮、输入框、卡片、hover 等交互带有轻微的淡入淡出与平滑过渡：
+* 让按钮、输入框、卡片、hover 等交互带有轻微的淡入淡出与平滑过渡
+```
   * {
     transition: all 0.25s ease-in-out;
 }
-
+```
 * 2️⃣ 圆角细化
 * 让所有常见组件（按钮、输入框、模态框、卡片）都有一致的圆角风格
+```
 .btn, .card, .form-control, .modal-content, .navbar, .alert {
     border-radius: 16px !important;
 }
-
+```
 * 3️⃣ 按钮点击动效（scale）
 * 在点击按钮时轻微缩放（模仿 iOS 弹性动效）
+```
 .btn:active {
     transform: scale(0.96);
 }
-
+```
 * 4️⃣ 模态框淡入动画
 * 让登录框 / 弹出框淡入显示
-
+```
 .modal-content {
     animation: fadeInUp 0.4s ease both;
 }
@@ -57,9 +60,9 @@
         transform: translateY(0);
     }
 }
-
+```
 * 5️⃣ 毛玻璃容器入场动效
-'
+```
 .frosted {
     animation: appear 0.6s ease-out;
 }
@@ -67,7 +70,7 @@
     from { opacity: 0; transform: scale(0.96); }
     to { opacity: 1; transform: scale(1); }
 }
-'
+```
 ## 3.1.1 (1.0版本)
 * 1、美化
 * 2、修复Cloudflare对接问题
