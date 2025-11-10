@@ -1,0 +1,357 @@
+/* Vue.js 组件加载前的隐藏样式 */
+[v-cloak] {
+    display: none;                   /* 在Vue实例编译完成前隐藏元素，避免显示未编译的Mustache标签 */
+}
+
+/* 导航栏基础样式 */
+.bd-navbar {
+    min-height: 4rem;                /* 设置导航栏最小高度为4rem */
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, .05), inset 0 -1px 0 rgba(0, 0, 0, .1); /* 外部阴影和内部底部边框阴影效果 */
+}
+
+/* 侧边栏基础样式 */
+.bd-sidebar {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, .05), inset 0 -1px 0 rgba(0, 0, 0, .1); /* 与导航栏一致的阴影效果 */
+    height: 100%;                    /* 侧边栏高度占满父容器 */
+}
+
+/* 导航Logo文字样式 */
+.nav-logo-name {
+    color: red;                      /* Logo文字颜色为红色 */
+    font-weight: bold;               /* 粗体显示 */
+    font-size: 20px;                 /* 字体大小20像素 */
+}
+
+/* 导航菜单容器样式 */
+.nav-menu {
+    padding-top: 12px;               /* 顶部内边距12px */
+    padding-left: 0.2rem !important; /* 左侧内边距0.2rem，使用!important提高优先级 */
+    color: black;                    /* 菜单文字颜色为黑色 */
+}
+
+/* 菜单链接项样式 */
+.menu-link {
+    display: block;                  /* 块级显示，占满整行 */
+    height: 3rem;                    /* 固定高度3rem */
+    line-height: 3rem;               /* 行高等于高度，实现文字垂直居中 */
+    color: black;                    /* 文字颜色黑色 */
+    font-weight: 500;                /* 中等字重 */
+    border-bottom: 1px solid gainsboro; /* 底部1px浅灰色边框分隔线 */
+    padding: 0 1rem;                 /* 左右内边距1rem */
+}
+
+/* 菜单图标样式 */
+.menu-link .fa {
+    height: 3rem;                    /* 图标容器高度3rem */
+    line-height: 3rem;               /* 图标垂直居中 */
+}
+
+/* 菜单项链接通用样式 */
+.menu-item a {
+    text-decoration: none;           /* 移除链接下划线 */
+}
+
+/* 子菜单列表样式 */
+.menu-item ul {
+    list-style: none;                /* 移除列表默认样式（圆点等） */
+    padding: 0 1rem;                 /* 左右内边距1rem */
+}
+
+/* 子菜单项链接样式 */
+.menu-item ul li a {
+    display: block;                  /* 块级显示 */
+    height: 2rem;                    /* 固定高度2rem */
+    line-height: 2rem;               /* 文字垂直居中 */
+    color: black;                    /* 文字颜色黑色 */
+    padding: 0 1rem;                 /* 左右内边距1rem */
+}
+
+/* 折叠菜单样式 */
+.menu-item .collapse {
+    margin: 0 !important;            /* 移除所有外边距，!important确保优先级 */
+    border-bottom: 1px solid gainsboro; /* 底部1px浅灰色边框 */
+}
+
+/* 侧边栏内边距重置 */
+.bd-sidebar {
+    padding: 0;                      /* 移除侧边栏所有内边距 */
+}
+
+/* 激活菜单项样式 */
+.bd-sidebar .active a{
+    color: green;                    /* 激活状态的菜单项文字颜色为绿色 */
+}
+
+/* ================================
+   大屏幕响应式样式（宽度≥576px）
+   ================================ */
+@media (min-width: 576px) {
+    /* 侧边栏粘性定位 */
+    .bd-sidebar {
+        position: sticky;            /* 粘性定位，在视口内保持可见 */
+        top: 4rem;                   /* 距离顶部4rem时开始固定 */
+        z-index: 1000;               /* 高堆叠顺序，确保显示在最上层 */
+        height: calc(100vh - 4rem);  /* 高度计算：视口高度减去导航栏高度 */
+    }
+    
+    /* 导航栏粘性定位 */
+    .bd-navbar {
+        position: -webkit-sticky;    /* Safari浏览器粘性定位前缀 */
+        position: sticky;            /* 标准粘性定位 */
+        top: 0;                      /* 顶部固定 */
+        z-index: 1000;               /* 高堆叠顺序 */
+        background: white;           /* 白色背景 */
+    }
+}
+
+/* ================================
+   小屏幕响应式样式（宽度＜576px）- 移动端适配
+   ================================ */
+@media (max-width: 576px) {
+    /* 流体容器行布局调整 */
+    .container-fluid .row {
+        display: block !important;   /* 强制改为块级布局，!important确保优先级 */
+    }
+
+    /* 内容区域上边距 */
+    .bd-content {
+        margin-top: 4rem;            /* 顶部外边距4rem，为固定导航栏留出空间 */
+    }
+
+    /* 移动端导航栏固定定位 */
+    .bd-navbar {
+        width: 100%;                 /* 全宽显示 */
+        background: white;           /* 白色背景 */
+        height: 4rem;                /* 固定高度4rem */
+        top: 0;                      /* 顶部对齐 */
+        position: fixed;             /* 固定定位，不随页面滚动 */
+        z-index: 999;                /* 堆叠顺序999，确保在内容上方 */
+    }
+
+    /* 移动端侧边栏样式 */
+    .bd-sidebar {
+        top: 4rem;                   /* 在导航栏下方，距离顶部4rem */
+        width: 15rem;                /* 固定宽度15rem */
+        position: fixed;             /* 固定定位 */
+        overflow-x: hidden;          /* 隐藏水平方向溢出内容 */
+        overflow-y: auto;            /* 允许垂直方向滚动 */
+        visibility: hidden;          /* 默认隐藏侧边栏 */
+        z-index: 999;                /* 堆叠顺序999 */
+    }
+
+    /* 菜单打开状态样式 */
+    .openMenu {
+        visibility: visible;         /* 显示侧边栏 */
+        /* 多浏览器前缀的平移变换复位 */
+        -webkit-transform: translate(0, 0);
+        -ms-transform: translate(0, 0);
+        -moz-transform: translate(0, 0);
+        -o-transform: translate(0, 0);
+        transform: translate(0, 0);
+        /* 多浏览器前缀的350ms过渡动画 */
+        -webkit-transition: all 350ms;
+        -ms-transition: all 350ms;
+        -moz-transition: all 350ms;
+        -o-transition: all 350ms;
+        transition: all 350ms;
+        /* 多浏览器前缀的背面可见性设置（性能优化） */
+        -webkit-backface-visibility: hidden;
+        -ms-backface-visibility: hidden;
+        -moz-backface-visibility: hidden;
+        -o-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+
+    /* 侧边栏打开时内容向右移动的动画 */
+    .moveRight {
+        /* 多浏览器前缀的350ms过渡动画 */
+        -webkit-transition: all 350ms;
+        -ms-transition: all 350ms;
+        -moz-transition: all 350ms;
+        -o-transition: all 350ms;
+        transition: all 350ms;
+        /* 多浏览器前缀的3D平移变换（向右移动250px） */
+        -webkit-transform: translate3d(250px, 0, 0);
+        -ms-transform: translate3d(250px, 0, 0);
+        -moz-transform: translate3d(250px, 0, 0);
+        -o-transform: translate3d(250px, 0, 0);
+        transform: translate3d(250px, 0, 0);
+        /* 多浏览器前缀的变换原点设置（左上角） */
+        -webkit-transform-origin: 0 0;
+        -ms-transform-origin: 0 0;
+        -moz-transform-origin: 0 0;
+        -o-transform-origin: 0 0;
+        transform-origin: 0 0;
+        /* 多浏览器前缀的背面可见性设置 */
+        -webkit-backface-visibility: hidden;
+        -ms-backface-visibility: hidden;
+        -moz-backface-visibility: hidden;
+        -o-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+
+    /* 移动动画复位样式 */
+    .moveAnimation {
+        /* 多浏览器前缀的350ms过渡动画 */
+        -webkit-transition: all 350ms;
+        -ms-transition: all 350ms;
+        -moz-transition: all 350ms;
+        -o-transition: all 350ms;
+        transition: all 350ms;
+        /* 多浏览器前缀的3D平移变换复位（回到原始位置） */
+        -webkit-transform: translate3d(0, 0, 0);
+        -ms-transform: translate3d(0, 0, 0);
+        -moz-transform: translate3d(0, 0, 0);
+        -o-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+        /* 多浏览器前缀的变换原点设置 */
+        -webkit-transform-origin: 0 0;
+        -ms-transform-origin: 0 0;
+        -moz-transform-origin: 0 0;
+        -o-transform-origin: 0 0;
+        transform-origin: 0 0;
+        /* 多浏览器前缀的背面可见性设置 */
+        -webkit-backface-visibility: hidden;
+        -ms-backface-visibility: hidden;
+        -moz-backface-visibility: hidden;
+        -o-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+}
+
+/* 输入提示文本样式 */
+.input_tips {
+    border: 1px solid #ced4da;       /* 浅灰色边框 */
+    padding: .375rem .75rem;         /* 内边距 */
+    border-radius: .25rem;           /* 小圆角 */
+    margin-top: 0.25rem;             /* 顶部外边距 */
+    font-size: 12px;                 /* 小号字体 */
+}
+
+/* 首页导航栏特殊样式 */
+.bd-navbar-index {
+    min-height: 4rem;                /* 最小高度4rem */
+    background-color: #563d7c;       /* 深紫色背景 */
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, .05), inset 0 -1px 0 rgba(0, 0, 0, .1); /* 阴影效果 */
+    height: auto;                    /* 自动高度 */
+    position: relative;              /* 相对定位 */
+}
+
+/* ================================
+   iOS26风格毛玻璃UI效果（后续添加）
+   ================================ */
+
+/* CSS自定义属性（变量）定义 */
+:root{
+  --glass-bg: rgba(255,255,255,0.12);        /* 毛玻璃背景颜色 */
+  --glass-border: rgba(255,255,255,0.18);    /* 毛玻璃边框颜色 */
+  --glass-shadow: 0 8px 30px rgba(0,0,0,0.18); /* 毛玻璃阴影效果 */
+  --glass-radius: 16px;                      /* 毛玻璃圆角大小 */
+}
+
+/* 页面背景设置 */
+body {
+  background-image: url("https://t.alcy.cc/ycy"); /* 背景图片URL */
+  background-size: cover;                      /* 背景图覆盖整个页面 */
+  background-position: center center;          /* 背景图居中 */
+  background-attachment: fixed;                /* 背景图固定，产生视差效果 */
+  -webkit-font-smoothing: antialiased;         /* 字体抗锯齿（Webkit内核） */
+  -moz-osx-font-smoothing: grayscale;          /* 字体抗锯齿（Firefox） */
+  color: #000000;                             /* 主体文字颜色（浅灰色） */
+}
+
+/* 通用毛玻璃卡片样式 */
+.card, .bd-sidebar, .modal-content, .navbar, .card-header, .card-footer {
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)); /* 线性渐变半透明背景 */
+  backdrop-filter: blur(14px) saturate(120%);  /* 毛玻璃模糊效果和饱和度增强 */
+  -webkit-backdrop-filter: blur(14px) saturate(120%); /* Safari毛玻璃效果前缀 */
+  border: 1px solid var(--glass-border);       /* 使用变量定义边框颜色 */
+  box-shadow: var(--glass-shadow);             /* 使用变量定义阴影效果 */
+  border-radius: var(--glass-radius);          /* 使用变量定义圆角大小 */
+  color: #000000;                             /* 文字颜色（稍亮的灰色） */
+}
+
+/* 按钮和表单控件背景裁剪 */
+.btn, .form-control {
+  background-clip: padding-box;                /* 背景裁剪到内边距框，避免边框处背景显示 */
+}
+
+/* 输入框样式：在毛玻璃背景上更清晰 */
+.form-control {
+  background: rgba(255,255,255,0.06);         /* 半透明白色背景 */
+  color: #000000;                                /* 白色文字 */
+  border: 1px solid rgba(255,255,255,0.08);   /* 半透明边框 */
+}
+
+/* 导航栏微调 */
+.bd-navbar, .bd-navbar-index {
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01)); /* 更透明的渐变背景 */
+  backdrop-filter: blur(12px);                 /* 毛玻璃模糊效果 */
+  -webkit-backdrop-filter: blur(12px);         /* Safari毛玻璃效果前缀 */
+  border-bottom: 1px solid rgba(255,255,255,0.06); /* 底部半透明边框 */
+}
+
+/* 模态框居中和毛玻璃效果 */
+.modal-dialog {
+  max-width: 720px;                           /* 模态框最大宽度720px */
+}
+.modal-content {
+  padding: 0.5rem;                            /* 模态框内容内边距 */
+}
+
+/* 表格表头轻微着色 */
+.table thead th {
+  background: rgba(255,255,255,0.03);         /* 表头半透明背景 */
+  border-bottom: 1px solid rgba(255,255,255,0.06); /* 表头底部边框 */
+}
+
+/* 链接和图标亮度调整 */
+a, .nav-link, .navbar-brand {
+  color: #000000;                             /* 白色链接和图标 */
+}
+
+/* 页脚和小号文字样式 */
+small, .text-muted {
+  color: rgba(0, 0, 0, 0.7);               /* 半透明白色，降低不透明度 */
+}
+
+/* 卡片悬停提升效果 */
+.card:hover {
+  transform: translateY(-4px);                /* 悬停时向上移动4px */
+  transition: transform 240ms ease;           /* 240ms缓动过渡效果 */
+}
+
+/* 确保图片（如Logo）突出显示 */
+.navbar-brand img, .logo {
+  filter: drop-shadow(0 4px 14px rgba(0,0,0,0.45)); /* 图片投影效果，增强立体感 */
+}
+
+/* 移动端安全内边距以显示背景 */
+.bd-content {
+  background: transparent !important;         /* 内容区域透明背景，显示底层背景图 */
+}
+
+/* 表单标签高对比度 */
+.col-form-label {
+  color: rgba(0, 0, 0, 0.95);              /* 接近纯白色的标签文字，确保可读性 */
+}
+
+/* 浏览器不支持毛玻璃效果的降级方案 */
+@supports not ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
+  .card, .modal-content, .navbar {
+    background: rgba(30,30,30,0.72);          /* 不支持毛玻璃时使用深色半透明背景 */
+  }
+}
+
+/* 登录页面的细微调整 */
+.bd-navbar-index .navbar-brand {
+  color: #000000;                                /* 登录页导航品牌文字白色 */
+  font-weight: 600;                           /* 中等粗体 */
+}
+
+
+
+
+.btn, .card, .form-control, .modal-content, .navbar, .alert {
+    border-radius: 16px !important;
+}
