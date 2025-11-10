@@ -307,7 +307,7 @@ body {
 
 /* 链接和图标亮度调整 */
 a, .nav-link, .navbar-brand {
-  color: #000000;                             /* 白色链接和图标 */
+  color: #ffffff;                             /* 白色链接和图标 */
 }
 
 /* 页脚和小号文字样式 */
